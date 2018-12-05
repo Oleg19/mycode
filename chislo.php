@@ -1,7 +1,6 @@
 <?php     
     function found($arrdate)
-    {  
-       //var_dump ($arrdate); 
+    {         
        switch ( $arrdate[1]) {    //Месяца где 31 день
         case '01':
         case '03':
@@ -39,13 +38,13 @@
      } 
     } 
     function dey($a, $arrdate)             // Перебирает дни
-    { while ( $arrdate[0] <> $a )                                 
-                { //var_dump ( $arrdate[0] );
-                  $arrdate[0] = $arrdate[0] + 1;
-                  //var_dump ( $arrdate [0] );
+    { 
+        while ( $arrdate[0] <> $a )                                 
+             { 
+                  $arrdate[0] = $arrdate[0] + 1;                  
                   $str = implode ( $arrdate );
                   data($str);
-                }       
+                }          
     } 
     function data($str)               // Выводит дату соответствующую числу человека
     {     
@@ -67,16 +66,13 @@
      $strdate = '01.05.2017';    // Рассчитывает без ошибок в интервале с начала года  и  до 2000 года, а также с 2000 г и более поздние даты.
      $arrdate = explode ( '.', $strdate );  // Если брать интервал с проходящий через 2000г будут ошибки.
      while ( $arrdate[2] <> 2019 )    // До какого года расчитывать.
-     {    
-          //var_dump($arrdate);          
+     {                       
           while ( $arrdate[1] <> 13)   // Перебирает месяца с 1 по 12
                 {
-        	           found ($arrdate);
-                    $arrdate[1] = $arrdate[1] + 1; 
-                    //var_dump( $arrdate[1]); die;           
+        	    found ($arrdate);
+                    $arrdate[1] = $arrdate[1] + 1;                                
                  } 
           $arrdate[1] = '01';       
           $arrdate[2] = $arrdate[2] + 1;
-      }              
-      
+      }        
 ?>
