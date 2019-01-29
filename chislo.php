@@ -58,8 +58,8 @@
            { $res = $res + $val ;          
            }         
         if ( $res == 8 ) // Чило по дате рождения 19+09+1969 = 8
-        { echo $str ." <br> " ;
-          $file = fopen("/var/www/html/mycode/chislo","ab", "\n");
+        { echo $str ." <br>" ;
+          $file = fopen("/var/www/html/mycode/chislo","ab");
           fwrite($file, $str);
           fclose($file);
           return;
