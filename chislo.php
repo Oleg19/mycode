@@ -41,8 +41,8 @@
     { 
         while ( $arrdate[0] <> $a )                                 
              { 
-                  $arrdate[0] = $arrdate[0] + 1;                  
-                  $str = implode ( $arrdate );
+                  $arrdate[0] = $arrdate[0] + 1 . ".";                
+                  $str = implode ( $arrdate );//var_dump ($str); die;
                   data($str);
                 }          
     } 
@@ -58,22 +58,23 @@
            { $res = $res + $val ;          
            }         
         if ( $res == 8 ) // Чило по дате рождения 19+09+1969 = 8
-        { echo $str ." <br>" ;
+        { echo $str  ." <br>" ;
           $file = fopen("/var/www/html/mycode/chislo","ab");
-          fwrite($file, $str);
+          fwrite($file, $str . ",");
           fclose($file);
           return;
         }
        
     }
-     $strdate = '01.01.2019';    // Рассчитывает без ошибок в интервале с начала года  и  до 2000 года, а также с 2000 г и более поздние даты.
+     $strdate = '01.09.2019';    // Рассчитывает без ошибок в интервале с начала года  и  до 2000 года, а также с 2000 г и более поздние даты.
      $arrdate = explode ( '.', $strdate );  // Если брать интервал с проходящий через 2000г будут ошибки.
+     $arrdate[1] = $arrdate[1] . ".";
      while ( $arrdate[2] <> 2020 )    // До какого года расчитывать.
      {                       
           while ( $arrdate[1] <> 13)   // Перебирает месяца с 1 по 12
                 {
         	    found ($arrdate);
-                    $arrdate[1] = $arrdate[1] + 1;                                
+                    $arrdate[1] = $arrdate[1] + 1 . ".";                                
                  } 
           $arrdate[1] = '01';       
           $arrdate[2] = $arrdate[2] + 1;
